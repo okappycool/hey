@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dialogue Box</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        .dialogue-box {
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            position: absolute;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-button {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dialogue-box" id="dialogueBox">
+    <p>Do you love me ?</p>
+    <button class="button yes-button" onclick="alert('You are a good boyfriend!!')">Yes</button>
+    <button class="button no-button" onmouseover="moveBox()">No</button>
+</div>
+
+<script>
+    function moveBox() {
+        const dialogueBox = document.getElementById('dialogueBox');
+        const body = document.body;
+
+        const maxX = body.clientWidth - dialogueBox.clientWidth;
+        const maxY = body.clientHeight - dialogueBox.clientHeight;
+
+        const newX = Math.random() * maxX;
+        const newY = Math.random() * maxY;
+
+        dialogueBox.style.left = newX + 'px';
+        dialogueBox.style.top = newY + 'px';
+    }
+</script>
+
+</body>
+</html>
